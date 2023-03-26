@@ -16,7 +16,7 @@ import '../box-styles.css'
 
 const smallBox = 
   <Box 
-    className="box--small" 
+    size="small" 
     style={{backgroundColor: 'lightblue'}}
   >
     small lightblue box
@@ -24,7 +24,7 @@ const smallBox =
 
 const mediumBox = 
   <Box 
-    className="box--medium" 
+    size="medium" 
     style={{backgroundColor: 'pink'}}
   >
     medium pink box
@@ -32,17 +32,25 @@ const mediumBox =
 
 const largeBox = 
   <Box 
-    className="box--large" 
+    size="large" 
     style={{backgroundColor: 'orange'}}
   >
     large orange box
   </Box>
 
-function Box({className = '', style, ...otherProps}){
-  return <div 
-  className={`box ${className}`}
-  style={{fontStyle: 'italic', ...style}} 
-  {...otherProps}/>
+const sizeLessBox =
+  <Box>sizeless box</Box>
+
+function Box({size, className = '', style, ...otherProps}){  
+  const sizeClassName = size ? `box--${size}` : ''
+
+  return (
+    <div 
+      className={`box ${sizeClassName} ${className}`}
+      style={{fontStyle: 'italic', ...style}} 
+      {...otherProps}/
+    >
+  )
 }
 
 function App() {
@@ -51,6 +59,7 @@ function App() {
       {smallBox}
       {mediumBox}
       {largeBox}
+      {sizeLessBox}
     </div>
   )
 }
