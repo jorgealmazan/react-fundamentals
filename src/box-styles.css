@@ -4,7 +4,6 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  font-style: italic;
 }
 .box--large {
   width: 270px;
